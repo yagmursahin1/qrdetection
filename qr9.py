@@ -12,7 +12,9 @@ while True:
 
     blurred=cv2.GaussianBlur(frame,(5,5),0)
 
-    bilateral=cv2.bilateralFilter(blurred,9,75,75)
+    blurred_rgb=cv2.cvtColor(blurred,cv2.COLOR_BGRA2BGR)
+
+    bilateral=cv2.bilateralFilter(blurred_rgb,9,75,75)
 
     gray=cv2.cvtColor(bilateral,cv2.COLOR_BGR2GRAY)
 
